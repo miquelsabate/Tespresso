@@ -1,0 +1,13 @@
+<div class="productos">
+   <div class="container">
+      <div class="cards row">
+         <% @categories.each do |t| %>
+         <div class="card col-xs-4">
+            <%= image_tag t.image %>
+            <h2><%= t.name %></h2>
+            <h2><%= t.description %></h2>
+         </div>
+         <% end %>
+      </div>
+   </div>
+</div>

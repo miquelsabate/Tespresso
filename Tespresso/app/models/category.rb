@@ -1,5 +1,3 @@
 class Category < ApplicationRecord
-  has_many :capsules
-  has_many :machines
-  has_many :accessories
+  has_many :products
 end
