@@ -1,7 +1,27 @@
-<div class="product">
-   <div class="container">
-      <h2 class="category-title"><%= @category.name %></h2>
-      
-      </div>
-   </div>
-</div>
+<%= render 'layouts/header' %>
+
+<body>
+  <div class="product">
+     <div class="container" style="text-align:center;">
+        <h2 style="color:Black;"><%= @category.name %></h2>
+        <br>
+        <div class="card-deck">
+          <% @products.each do |p| %>
+            <div class="card">
+              <img class="card-img-top"><%= image_tag p.image %></img> <!-- Mida imatge recomanada: 225x200 -->
+              <div class="card-body">
+                <h5 class="card-title"><%= p.name %></h5>
+                <p class="card-text"><%= p.description %></p>
+                <h2><span class="badge badge-secondary" style="background-color:Black;"><%= p.price %> €</span></h2>
+                <a href="#" class="btn btn-outline-dark">Añadir a la cesta</a>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        </div>
+     </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
+</body>

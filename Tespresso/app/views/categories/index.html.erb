@@ -1,18 +1,20 @@
 <%= render 'layouts/header' %>
 
 <body>
-  <div class="productos">
-     <div class="container">
-        <div class="cards row">
-           <% @categories.each do |t| %>
-           <div class="card col-xs-4">
-              <%= image_tag t.image %>
-              <h2><%= t.name %></h2>
-              <h2><%= t.description %></h2>
-           </div>
-           <% end %>
+
+  <div class="container-fluid">
+    <div class="row justify-content-md-center">
+      <% @categories.each do |t| %>
+        <div class="col col-lg-auto">
+            <a role="button" href="/categories/<%= t.id %>" class="btn btn-dark bg-black" style="width:250px;height:180px;text-transform: uppercase;">
+              <br>
+              <img><%= image_tag t.image %></img>
+              <br><br>
+              <b><%= t.name %></b>
+            </a>
         </div>
-     </div>
+      <% end %>
+    </div>
   </div>
 
   <%= render 'layouts/footer' %>

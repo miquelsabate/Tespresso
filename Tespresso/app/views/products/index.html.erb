@@ -1,22 +1,7 @@
 <%= render 'layouts/header' %>
 
 <body>
-<!--  <div class="productos">
-     <div class="container">
-        <div class="cards row">
-           <% @products.each do |t| %>
-           <div class="card col-xs-4">
-              <%= image_tag t.image %>
-              <h2><%= t.name %></h2>
-              <h2><%= t.description %></h2>
-              <h2><%= t.price %></h2>
-           </div>
-           <% end %>
-        </div>
-     </div>
-  </div> -->
-
-  <div class="container-fluid">
+  <div class="container-fluid" style="text-align:center;">
     <div class="card-deck">
       <% @products.each do |t| %>
         <div class="card">
@@ -24,7 +9,8 @@
           <div class="card-body">
             <h5 class="card-title"><%= t.name %></h5>
             <p class="card-text"><%= t.description %></p>
-            <p class="card-text btn btn-dark"><%= t.price %> €</p>
+            <h2><span class="badge badge-secondary" style="background-color:Black;"><%= t.price %> €</span></h2>
+            <a href="#" class="btn btn-outline-dark">Añadir a la cesta</a>
           </div>
         </div>
       <% end %>
@@ -38,9 +24,6 @@
      Buscar
     <%end%>
     <%end%>
-
-
-  <%= render 'layouts/user_widget' %>
 
   <%= render 'layouts/footer' %>
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+  <title>Tespresso Webpage</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <!-- Font awesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <style>
+    body{
+      background-color: Grey;
+    }
+    .bg-black {
+      background-color: Black;
+    }
+    .btn-white{
+      color:White;
+    }
+    .btn-white:hover{
+      color:Grey;
+    }
+  </style>
+</head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+
+    <a class="navbar-brand" href="/"><img src="/assets/logoTespresso.png" alt="" width="40" height="40"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/products"><b>Todos los productos</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/1"><b>Cápsulas</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/2"><b>Máquinas</b></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/categories/3"><b>Accesorios</b></a>
+        </li>
+        <li class="nav-item">
+            &nbsp;&nbsp;
+        </li>
+        <li class="form-inline my-2 my-lg-0">
+          <%= form_tag "products", method: :get do %>
+            <%= text_field_tag :search ,nil , placeholder: "Introduzca su búsqueda" %>
+            <%= content_tag :button ,type: :submit do %>
+             Buscar
+            <%end%>
+            <%end%>
+        </li>
+      </ul>
+        <%= render 'layouts/user_widget_personalized' %>
+      <!--<a class="btn btn-outline-light" href="./users/sign_in" role="button">Login</a>-->
+    </div>
+  </nav>
+
+<br><br><br><br>
+
+<%= yield %>
