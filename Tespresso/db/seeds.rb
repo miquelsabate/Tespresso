@@ -17,3 +17,8 @@ p3 = Product.create(name: "capsula amarilla", price: 20.01, description: "rgthth
 p4 = Product.create(name: "capsularnegra", price: 20.01, description: "rgththghgh", image: "https://i.pinimg.com/originals/4a/71/fe/4a71fe3d2bc350ef22f576236e59d575.png", category_id: c1.id)
 p5 = Product.create(name: "maquina1", price: 20.01, description: "rgththghgh", image: "https://i.pinimg.com/originals/4a/71/fe/4a71fe3d2bc350ef22f576236e59d575.png", category_id: c2.id)
 p6 = Product.create(name: "Accesorio1", price: 20.01, description: "rgththghgh", image: "https://i.pinimg.com/originals/4a/71/fe/4a71fe3d2bc350ef22f576236e59d575.png", category_id: c3.id)
+
+u1 = User.create(email: "user1@gmail.com", password: "holahola")
+Order.create(user_id: u1.id, product_id: p1.id )
+Order.create(user_id: u1.id, product_id: p2.id )
+
