@@ -48,7 +48,7 @@
             &nbsp;&nbsp;
         </li>
         <li class="form-inline my-2 my-lg-0">
-          <%= form_tag "products", method: :get do %>
+          <%= form_tag "/products", method: :get do %>
             <%= text_field_tag :search ,nil , placeholder: "Introduzca su búsqueda" %>
             <%= content_tag :button ,type: :submit do %>
              Buscar

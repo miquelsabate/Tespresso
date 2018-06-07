@@ -30,5 +30,12 @@ p6 = Product.create(name: "Taza Tespresso", price: 14.99, description: 'Añade u
 
 
 u1 = User.create(email: "user1@gmail.com", password: "holahola")
-Order.create(user_id: u1.id, product_id: p1.id )
-Order.create(user_id: u1.id, product_id: p2.id )
+
+o1 = Order.create(user_id: u1.id, state: "Pagado")
+OrderItem.create(order_id: o1.id, product_id: p1.id)
+OrderItem.create(order_id: o1.id, product_id: p2.id)
+
+o2 = Order.create(user_id: u1.id, state: "Carrito")
+OrderItem.create(order_id: o2.id, product_id: p3.id)
+OrderItem.create(order_id: o2.id, product_id: p4.id)
+OrderItem.create(order_id: o2.id, product_id: p5.id)

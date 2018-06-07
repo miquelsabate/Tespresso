@@ -16,15 +16,7 @@
       <% end %>
     </div>
   </div>
-
-
-  <%= form_tag "products", method: :get do %>
-    <%= text_field_tag :search ,nil , placeholder: "introduzca la búsqueda" %>
-    <%= content_tag :button ,type: :submit do %>
-     Buscar
-    <%end%>
-    <%end%>
-
+  
   <%= render 'layouts/footer' %>
 
   </body>
