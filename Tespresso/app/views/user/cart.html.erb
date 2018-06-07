@@ -3,16 +3,13 @@
 <body>
 
   <div class="container-fluid" style="text-align:center;">
-    <h2>Su cuenta</h2>
-    <%= @user.email %>
+    <h2>Su cesta</h2>
   </div>
-
-  <br><br>
-
+  <br>
   <div class="container-fluid" style="text-align:center;">
-    <h2>Sus pedidos</h3>
         <% @orders.each do |t| %>
-          <% total = 0 %>
+        <% if t.state == "Carrito" %>
+        <% total = 0 %>
           <table class="table table-striped table-dark">
           <thead>
             <th scope="col">
@@ -20,11 +17,7 @@
             </th>
             <th scope="col"</th>
             <th scope="col">
-              <% if t.state == "Carrito" %>
                 <button class="btn btn-warning" role="button" href="#">Proceder al pago</button>
-              <% elsif t.state == "Pagado" %>
-                      <button class="btn btn-danger" role="button" href="#">Devolver pedido</button>
-              <% end %>
             </th>
           </thead>
           <thead>
@@ -44,12 +37,14 @@
             <td><%= t.created_at %></td>
           </tr>
           <% end %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b>PRECIO TOTAL: &nbsp;&nbsp;&nbsp;<%= (total* 1000).floor / 1000.0 %> €</b></td>
+          </tr>
+          <% end %>
         </tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td><b>PRECIO TOTAL: &nbsp;&nbsp;&nbsp;<%= (total* 1000).floor / 1000.0 %> €</b></td>
-        </tr>
+
       </table>
         <% end %>
   </div>

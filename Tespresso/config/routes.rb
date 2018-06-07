@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/categories', to: 'categories#index'
   get '/categories/:id', to: 'categories#show'
   get '/user', to: 'user#index'
+  get '/cart', to: 'user#cart'
+  get '/legal', to: 'user#legal'
   root 'categories#index'
 
 end
