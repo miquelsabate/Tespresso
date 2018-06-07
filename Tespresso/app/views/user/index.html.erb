@@ -2,26 +2,42 @@
 
 <body>
 
-  <div class="container-fluid">
-    <h2>Sus pedidos</h3>
+  <div class="container-fluid" style="text-align:center;">
+    <h2>Su cuenta</h2>
+    <%= @user.email %>
+  </div>
 
+  <br><br>
+
+  <div class="container-fluid" style="text-align:center;">
+    <h2>Sus pedidos</h3>
         <% @orders.each do |t| %>
           <table class="table table-striped table-dark">
           <thead>
-            <th scope="col" colspan="4">Order ID: <%= t.id %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; Estado: <%= t.state %></th>
+            <th scope="col">
+              <span class="align-middle">Order ID: <%= t.id %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; Estado: <%= t.state %></span>
+            </th>
+            <th scope="col"</th>
+            <th scope="col">
+              <% if t.state == "Carrito" %>
+                <button class="btn btn-warning" role="button" href="#">Proceder al pago</button>
+              <% elsif t.state == "Pagado" %>
+                      <button class="btn btn-danger" role="button" href="#">Devolver pedido</button>
+              <% end %>
+            </th>
           </thead>
           <thead>
             <tr>
-              <th scope="col">Product name</th>
-              <th scope="col">Product price</th>
-              <th scope="col">Order creation</th>
+              <th scope="col">Nombre de producto</th>
+              <th scope="col">Precio de producto</th>
+              <th scope="col">Fecha de creación</th>
             </tr>
           </thead>
           <tbody>
           <% t.order_items.each do |i| %>
           <tr>
             <td><%= @products[i.product_id].name %></td>
-            <td><%= @products[i.product_id].price %></td>
+            <td><%= @products[i.product_id].price %> €</td>
             <td><%= t.created_at %></td>
           </tr>
           <% end %>
