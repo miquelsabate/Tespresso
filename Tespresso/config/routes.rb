@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/user', to: 'user#index'
   get '/cart', to: 'user#cart'
   get '/legal', to: 'user#legal'
+  get '/pay', to: 'cart_checkout#index'
+  post '/createpayment', to: 'cart_checkout#createpayment'
+  post '/executepayment', to: 'cart_checkout#executepayment'
   root 'categories#index'
 
 end
