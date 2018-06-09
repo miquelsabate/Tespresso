@@ -21,9 +21,9 @@
             <th scope="col"</th>
             <th scope="col">
               <% if t.state == "Carrito" %>
-                <button class="btn btn-warning" role="button" href="#">Proceder al pago</button>
+                <a class="btn btn-warning" href='/pay/<%= t.id %>' role="button">Proceder al pago</a>
               <% elsif t.state == "Pagado" %>
-                      <button class="btn btn-danger" role="button" href="#">Devolver pedido</button>
+                <button class="btn btn-danger" role="button" href="#">Devolver pedido</button>
               <% end %>
             </th>
           </thead>
@@ -37,11 +37,11 @@
           <tbody>
           <% t.order_items.each do |i| %>
           <tr>
-            <td><%= @products[i.product_id].name %></td>
-            <td><%= @products[i.product_id].price %> €</td>
-            <% price = @products[i.product_id].price %>
+            <td><%= @products[i.product_id-1].name %></td>
+            <td><%= @products[i.product_id-1].price %> €</td>
+            <% price = @products[i.product_id-1].price %>
             <% total += price %>
-            <td><%= t.created_at %></td>
+            <td><%= i.created_at %></td>
           </tr>
           <% end %>
         </tbody>

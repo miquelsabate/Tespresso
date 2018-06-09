@@ -13,7 +13,7 @@
                 <h5 class="card-title"><%= p.name %></h5>
                 <p class="card-text"><%= p.description %></p>
                 <h2><span class="badge badge-secondary" style="background-color:Black;"><%= p.price %> €</span></h2>
-                <a href="#" class="btn btn-outline-dark">Añadir a la cesta</a>
+                <a href="/addProduct/<%= p.id %>" class="btn btn-outline-dark">Añadir a la cesta</a>
               </div>
             </div>
           <% end %>
