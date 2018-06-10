@@ -8,17 +8,27 @@
   <% end %>
 
   <div class="container-fluid" style="text-align:center;">
-    <div class="card-deck">
+      <% cont = 0 %>
+      <div class="card-deck">
       <% @products.each do |t| %>
-        <div class="card">
+        <div class="card p-3">
           <img class="card-img-top"><%= image_tag t.image %></img> <!-- Mida imatge recomanada: 225x200 -->
           <div class="card-body">
             <h5 class="card-title"><%= t.name %></h5>
             <p class="card-text"><%= t.description %></p>
+          </div>
+          <div class="card-footer">
             <h2><span class="badge badge-secondary" style="background-color:Black;"><%= t.price %> €</span></h2>
             <a href="/addProduct/<%= t.id %>" class="btn btn-outline-dark">Añadir</a>
           </div>
         </div>
+        <% cont += 1 %>
+        <% if (cont > 3) %>
+          </div>
+          <br>
+          <div class="card-deck">
+          <% cont = 0 %>
+        <% end %>
       <% end %>
     </div>
   </div>

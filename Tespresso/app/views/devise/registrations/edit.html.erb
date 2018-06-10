@@ -12,6 +12,11 @@
             <%= devise_error_messages! %>
 
             <div class="field">
+              <%= f.label :name %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            </div>
+
+            <div class="field">
               <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
@@ -37,6 +42,16 @@
             <div class="field">
               <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
               <%= f.password_field :current_password, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :direction %> <i>Dirección postal (para envíos)</i><br />
+              <%= f.text_field :direction, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :numcard %> <i>Número tarjeta de crédito</i><br />
+              <%= f.text_field :numcard, autofocus: true, autocomplete: "email" %>
             </div>
             <br>
             <div class="actions">

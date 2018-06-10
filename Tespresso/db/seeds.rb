@@ -21,13 +21,16 @@ c1 = Category.create(name: "Cápsulas", image: "/assets/capsulas-tespresso.png",
 c2 = Category.create(name: "Máquinas", image: "/assets/maquinas-tespresso.png" , description: "Máquinas")
 c3 = Category.create(name: "Accesorios", image: "/assets/accesorios-tespresso.png", description: "Accesorios")
 
-p1 = Product.create(name: "Té verde", price: 5.00, description: "Té verde de gran calidad", image: "/assets/product-capsula.png", category_id: c1.id)
-p2 = Product.create(name: "Té verde (Ed. limitada)", price: 6.50, description: "El mismo té verde, ahora en edición limitada!", image: "/assets/product-capsula.png", category_id: c1.id)
-p3 = Product.create(name: "Té amarillo", price: 5.00, description: "Té amarillo, listo para servirse", image: "/assets/product-capsula.png", category_id: c1.id)
-p4 = Product.create(name: "Té negro", price: 5.50, description: "Para los amantes del té fuerte llega el té negro", image: "/assets/product-capsula.png", category_id: c1.id)
-p5 = Product.create(name: "Tespresso Gold Edition", price: 39.99, description: "La Tespresso Gold Edition permite hacer los mejores tés", image: "/assets/product-maquina.png", category_id: c2.id)
-p6 = Product.create(name: "Taza Tespresso", price: 14.99, description: 'Añade un extra de "premium" en sus momentos de té y presume de tazas Tespresso', image: "/assets/product-accesorio.png", category_id: c3.id)
-
+p1 = Product.create(name: "Té verde - x20", price: 5.00, description: "Té verde de gran calidad", image: "/assets/green.png", category_id: c1.id)
+p2 = Product.create(name: "Té verde (Ed. limitada) - x20", price: 8.00, description: "El mismo té verde, ahora en edición limitada!", image: "/assets/green.png", category_id: c1.id)
+p3 = Product.create(name: "Té amarillo - x20", price: 5.00, description: "Té amarillo, listo para servirse", image: "/assets/yellow.png", category_id: c1.id)
+p4 = Product.create(name: "Té negro - x20", price: 5.50, description: "Para los amantes del té fuerte llega el té negro", image: "/assets/product-capsula.png", category_id: c1.id)
+p5 = Product.create(name: "Tespresso Gold Edition", price: 59.99, description: "La Tespresso Gold Edition permite hacer los mejores tés", image: "/assets/product-maquina.png", category_id: c2.id)
+p6 = Product.create(name: "Tespresso Tea Time", price: 39.99, description: "La Tespresso Tea Time ayuda a tener el té siempre listo", image: "/assets/product-maquina.png", category_id: c2.id)
+p7 = Product.create(name: "Tespresso Sescelades", price: 35.00, description: "La Tespresso Sescelades tiene las mejores prestaciones al mejor precio", image: "/assets/product-maquina.png", category_id: c2.id)
+p8 = Product.create(name: "Taza Tespresso - x4", price: 14.99, description: 'Añade un extra de "premium" en sus momentos de té y presume de tazas Tespresso', image: "/assets/product-accesorio.png", category_id: c3.id)
+p9 = Product.create(name: "Taza Tespresso Deluxe Edition - x4", price: 24.99, description: "Edición especial de la tradicional taza de Tespresso", image: "/assets/product-accesorio.png", category_id: c3.id)
+p10 = Product.create(name: "Taza Tespresso (Ed. estreno)", price: 5.00, description: "Celebre con nosotros el estreno de nuestra nueva marca!", image: "/assets/product-accesorio.png", category_id: c3.id)
 
 u1 = User.create(email: "user@user.com", password: "holahola")
 
