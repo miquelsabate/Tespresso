@@ -3,9 +3,7 @@
 <body>
   <% if (notice != nil)  %>
     <div class="container">
-      <div class="alert alert-danger" role="alert">
-        <%= notice %>
-      </div>
+        <%= notice.html_safe %>
     </div>
   <% end %>
 
@@ -13,52 +11,58 @@
     <h2>Su cesta</h2>
   </div>
   <br>
-  <div class="container-fluid" style="text-align:center;">
-        <% @orders.each do |t| %>
-        <% if t.state == "Carrito" %>
-        <% total = 0 %>
-          <table class="table table-striped table-dark">
-          <thead>
-            <th scope="col">
-              <span class="align-middle">Order ID: <%= t.id %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; Estado: <%= t.state %></span>
-            </th>
-            <th scope="col"</th>
-            <th scope="col"</th>
-            <th scope="col">
-                <a class="btn btn-warning" href='/pay/<%= t.id %>' role="button">Proceder al pago</a>
-            </th>
-          </thead>
-          <thead>
+  <% if (@no_orders) %>
+      <div class="container text-center">
+        Su cesta está vacía
+      </div>
+  <% else %>
+    <div class="container-fluid" style="text-align:center;">
+          <% @orders.each do |t| %>
+          <% if t.state == "Carrito" %>
+          <% total = 0 %>
+            <table class="table table-striped table-dark">
+            <thead>
+              <th scope="col">
+                <span class="align-middle">Order ID: <%= t.id %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; Estado: <%= t.state %></span>
+              </th>
+              <th scope="col"</th>
+              <th scope="col"</th>
+              <th scope="col">
+                  <a class="btn btn-warning" href='/pay/<%= t.id %>' role="button">Proceder al pago</a>
+              </th>
+            </thead>
+            <thead>
+              <tr>
+                <th scope="col">Nombre de producto</th>
+                <th scope="col">Precio de producto</th>
+                <th scope="col">Fecha de creación</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% t.order_items.each do |i| %>
             <tr>
-              <th scope="col">Nombre de producto</th>
-              <th scope="col">Precio de producto</th>
-              <th scope="col">Fecha de creación</th>
-              <th scope="col">Acciones</th>
+              <td><%= @products[i.product_id-1].name %></td>
+              <td><%= @products[i.product_id-1].price %> €</td>
+              <% price = @products[i.product_id-1].price %>
+              <% total += price %>
+              <td><%= i.created_at %></td>
+              <td><a class="btn btn-danger" href="/delOrdItem/<%= i.id %>"><i class="fas fa-trash-alt"></i></td>
             </tr>
-          </thead>
-          <tbody>
-          <% t.order_items.each do |i| %>
-          <tr>
-            <td><%= @products[i.product_id-1].name %></td>
-            <td><%= @products[i.product_id-1].price %> €</td>
-            <% price = @products[i.product_id-1].price %>
-            <% total += price %>
-            <td><%= i.created_at %></td>
-            <td><a class="btn btn-danger" href="/delOrdItem/<%= i.id %>"><i class="fas fa-trash-alt"></i></td>
-          </tr>
-          <% end %>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><b>PRECIO TOTAL: &nbsp;&nbsp;&nbsp;<%= (total* 1000).floor / 1000.0 %> €</b></td>
-          </tr>
-          <% end %>
-        </tbody>
+            <% end %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><b>PRECIO TOTAL: &nbsp;&nbsp;&nbsp;<%= (total* 1000).floor / 1000.0 %> €</b></td>
+            </tr>
+            <% end %>
+          </tbody>
 
-      </table>
-        <% end %>
-  </div>
+        </table>
+          <% end %>
+    </div>
+  <% end %>
 
   <%= render 'layouts/footer' %>
 

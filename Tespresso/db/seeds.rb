@@ -29,7 +29,7 @@ p5 = Product.create(name: "Tespresso Gold Edition", price: 39.99, description: "
 p6 = Product.create(name: "Taza Tespresso", price: 14.99, description: 'Añade un extra de "premium" en sus momentos de té y presume de tazas Tespresso', image: "/assets/product-accesorio.png", category_id: c3.id)
 
 
-u1 = User.create(email: "user1@gmail.com", password: "holahola")
+u1 = User.create(email: "user@user.com", password: "holahola")
 
 o1 = Order.create(user_id: u1.id, state: "Pagado")
 OrderItem.create(order_id: o1.id, product_id: p1.id)

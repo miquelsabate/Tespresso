@@ -11,6 +11,9 @@ class CartCheckoutController < ApplicationController
         @total += price
       end
       @total = (@total* 1000).floor / 1000.0
+      if @total == 0
+        redirect_back(fallback_location: root_path, flash: {notice: '<div class="alert alert-danger" role="alert">No hay productos en el pedido. No se ha podido proceder al pago</div>'})
+      end
     end
 
     def set_paypaltoken
@@ -33,7 +36,7 @@ class CartCheckoutController < ApplicationController
                     'Authorization' => "Bearer #{@paypaltoken}"},
       :body =>  {   :intent => 'sale',
                     :redirect_urls => {'return_url' =>
-      "http://localhost:3000/completed/#{@order.id}",'cancel_url' => 'http://localhost:3000'},
+      "/completed/#{@order.id}",'cancel_url' => '/'},
                     :payer => {'payment_method' => 'paypal'},
                     :transactions => [{'amount' => {'total' => "#{@total}",
       'currency' => 'EUR'}}]
