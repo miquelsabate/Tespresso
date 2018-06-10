@@ -15,7 +15,7 @@ class OrderManagerController < ApplicationController
       @order.each do |t|
         @order_item = OrderItem.new(order_id: t.id, product_id: @product.id)
         if @order_item.save
-          redirect_to "/"
+          redirect_back(fallback_location: root_path, flash: {notice: 'El producto "' "#{@product.name}" '" ha sido añadido a la cesta'})
         end
       end
     end
@@ -25,7 +25,14 @@ class OrderManagerController < ApplicationController
     @order = Order.find(params[:id])
     @order.state ="Pagado"
     if @order.save
-      redirect_to "/cart"
+      redirect_to "/user"
     end
+  end
+
+  def deleteOrderItem
+    @order_item = OrderItem.find(params[:id])
+    @product = Product.find(@order_item.product_id)
+    @item = OrderItem.delete(@order_item.id)
+    redirect_back(fallback_location: root_path, flash: {notice: 'El producto "' "#{@product.name}" '" ha sido eliminado de la cesta'})
   end
 end

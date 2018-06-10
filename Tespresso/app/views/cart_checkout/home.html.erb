@@ -1,4 +1,32 @@
-<div id="paypal-button-container" value="<%= @order.id %>"></div>
+<%= render 'layouts/header' %>
+
+<body>
+  <div class="container" style="text-align:center;">
+    <h2>Confirmar compra</h2>
+
+    <div class="row">
+      <div class="col col-lg-4">
+      </div>
+        <div class="col col-lg-4 card">
+          <div class="card-body">
+            <div class="card-body center" style="background-color:Grey;">
+              A continuación va a proceder al pago de su pedido el cual tiene un precio total de <b><%= @total %> €</b>
+            </div>
+          <hr style="background-color:Black;">
+          <b>Métodos de pago:</b>
+          <br><br>
+          <div class="btn btn-secondary" id="paypal-button-container" value="<%= @order.id %>"></div>
+
+        </div>
+      </div>
+      <div class="col col-lg-4">
+      </div>
+    </div> <!-- div row -->
+  </div>
+
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
 
 <!-- SCRIPT PAYPAL BUTTON -->
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>

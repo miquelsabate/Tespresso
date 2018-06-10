@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/legal', to: 'user#legal'
   get '/addProduct/:id', to: 'order_manager#addProductToCart'
   get '/completed/:id', to: 'order_manager#orderCompleted'
+  get '/delOrdItem/:id', to: 'order_manager#deleteOrderItem'
   get '/pay/:id', to: 'cart_checkout#home'
   post '/createpayment/:id', to: 'cart_checkout#createpayment'
   post '/executepayment', to: 'cart_checkout#executepayment'

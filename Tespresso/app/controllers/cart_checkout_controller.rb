@@ -3,10 +3,18 @@ class CartCheckoutController < ApplicationController
 
     def home
       @order = Order.find(params[:id])
+   		@order_items = OrderItem.where("order_id == ?", "#{@order.id}")
+      @products = Product.all
+      @total = 0
+      @order_items.each do |t|
+        price = @products[t.product_id-1].price
+        @total += price
+      end
+      @total = (@total* 1000).floor / 1000.0
     end
 
     def set_paypaltoken
-      @paypaltoken = 'A21AAGPvU62qWkiXBwrYB7RU24Hdm4sS2WS3uzhURXY_Mu6frFkk02eG2a3bZi6iAs9-sgloTs5nHDqo7CbNBwsjQxdSoXILw'
+      @paypaltoken = 'A21AAGYw06WgAUlsvBS320LZty9YGX-LtBEt2nsnsWz91_SCBFU8sGB__CCw39Q1QmgsGa7xwdR-NxuIi0cOR5K7IHzao_5cA'
     end
 
     def createpayment
@@ -25,7 +33,7 @@ class CartCheckoutController < ApplicationController
                     'Authorization' => "Bearer #{@paypaltoken}"},
       :body =>  {   :intent => 'sale',
                     :redirect_urls => {'return_url' =>
-      "/completed/#{@order.id}",'cancel_url' => 'http://localhost:3000'},
+      "http://localhost:3000/completed/#{@order.id}",'cancel_url' => 'http://localhost:3000'},
                     :payer => {'payment_method' => 'paypal'},
                     :transactions => [{'amount' => {'total' => "#{@total}",
       'currency' => 'EUR'}}]

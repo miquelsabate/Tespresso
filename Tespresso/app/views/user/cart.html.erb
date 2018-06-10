@@ -1,6 +1,13 @@
 <%= render 'layouts/header' %>
 
 <body>
+  <% if (notice != nil)  %>
+    <div class="container">
+      <div class="alert alert-danger" role="alert">
+        <%= notice %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="container-fluid" style="text-align:center;">
     <h2>Su cesta</h2>
@@ -16,6 +23,7 @@
               <span class="align-middle">Order ID: <%= t.id %>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; Estado: <%= t.state %></span>
             </th>
             <th scope="col"</th>
+            <th scope="col"</th>
             <th scope="col">
                 <a class="btn btn-warning" href='/pay/<%= t.id %>' role="button">Proceder al pago</a>
             </th>
@@ -25,6 +33,7 @@
               <th scope="col">Nombre de producto</th>
               <th scope="col">Precio de producto</th>
               <th scope="col">Fecha de creación</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -35,9 +44,11 @@
             <% price = @products[i.product_id-1].price %>
             <% total += price %>
             <td><%= i.created_at %></td>
+            <td><a class="btn btn-danger" href="/delOrdItem/<%= i.id %>"><i class="fas fa-trash-alt"></i></td>
           </tr>
           <% end %>
           <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td><b>PRECIO TOTAL: &nbsp;&nbsp;&nbsp;<%= (total* 1000).floor / 1000.0 %> €</b></td>

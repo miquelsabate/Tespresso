@@ -1,6 +1,13 @@
 <%= render 'layouts/header' %>
 
 <body>
+  <% if (notice != nil)  %>
+    <div class="container">
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    </div>
+  <% end %>
   <div class="product">
      <div class="container" style="text-align:center;">
         <h2 style="color:Black;text-transform:uppercase;"><%= @category.name %></h2>
