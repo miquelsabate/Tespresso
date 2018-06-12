@@ -4,9 +4,20 @@
 
   <div class="container-fluid" style="text-align:center;">
     <h2>Su cuenta</h2>
-    <%= @user.email %>
+    <div class="container d-flex justify-content-center">
+      <div class="card">
+        <div class="card-body text-left" style="padding-left:40px;padding-right:40px;">
+          <b>E-mail:</b> <%= @user.email %><br>
+          <b>Nombre:</b> <% if(@user.name == "")%> <i>No especificado</i> <% else %><%= @user.name %><% end %><br>
+          <b>Dir. de envío:</b> <% if(@user.direction == "")%> <i>No especificado</i> <% else %><%= @user.direction %><% end %><br>
+          <b>Datos bancarios:</b> <% if(@user.numcard == "")%> <i>No especificado</i> <% else %><%= @user.numcard %><% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+    <a href="/users/edit" class="btn btn-warning">Modificar cuenta</a>
     <br><br>
-    <a href="/users/edit" class="btn btn-warning">Actualizar datos</a>
+    <a href="/edit" class="btn btn-warning">Modificar datos personales</a>
   </div>
 
   <br><br>

@@ -1,0 +1,36 @@
+<%= render 'layouts/header' %>
+<body>
+  <div class="container" style="text-align:center;">
+    <h2>Editar datos</h2>
+
+    <div class="row">
+      <div class="col col-lg-4">
+      </div>
+        <div class="col col-lg-4 card">
+          <div class="card-body">
+            <form action="/modify" method="get">
+              <div class="field">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Introducir nombre" value="<%= @user.name %>">
+              </div>
+              <br>
+              <div class="field">
+                <label for="direction">Dirección postal</label>
+                <input type="text" class="form-control" id="direction" name="direction" placeholder="Introducir dirección postal" value="<%= @user.direction %>">
+                <small class="form-text text-muted">Será la dirección que utilizaremos para sus envíos.</small>
+              </div>
+              <br>
+              <div class="field">
+                <label for="numcard">Datos bancarios</label>
+                <input type="text" class="form-control" id="numcard" name="numcard" placeholder="Introducir datos bancarios" value="<%= @user.numcard %>">
+              </div>
+            <br>
+            <div class="actions">
+              <button type="submit" class="btn btn-warning">Actualizar datos</button>
+            </div>
+        </form>
+<hr>
+
+<%= link_to "Volver", :back %>
+
+<%= render 'layouts/footer' %>

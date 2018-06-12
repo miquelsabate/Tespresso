@@ -16,4 +16,25 @@ class UserController < ApplicationController
       end
     end
  	end
+
+  def edit
+    @user = current_user
+  end
+
+  def modify
+    @user = current_user
+    if params[:name] != ""
+      @user.name = params[:name]
+    end
+    if params[:email] != ""
+      @user.direction = params[:direction]
+    end
+    if params[:numcard] != ""
+      @user.numcard = params[:numcard]
+    end
+
+    if @user.save
+      redirect_to "/user"
+    end
+  end
 end

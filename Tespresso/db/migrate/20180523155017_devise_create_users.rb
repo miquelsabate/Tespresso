@@ -9,8 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       ## Personal information
       t.string :name, null: false, default: ""
-      t.string :direction
-      t.string :numcard
+      t.string :direction, null: false, default: ""
+      t.string :numcard, null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token

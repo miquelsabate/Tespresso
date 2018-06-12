@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/cart', to: 'user#cart'
   get '/legal', to: 'user#legal'
   get '/contact', to: 'user#contact'
+  get '/edit', to: 'user#edit'
+  get '/modify', to: 'user#modify'
   get '/addProduct/:id', to: 'order_manager#addProductToCart'
   get '/completed/:id', to: 'order_manager#orderCompleted'
   get '/delOrdItem/:id', to: 'order_manager#deleteOrderItem'
