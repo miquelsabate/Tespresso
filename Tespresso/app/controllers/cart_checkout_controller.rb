@@ -17,7 +17,7 @@ class CartCheckoutController < ApplicationController
     end
 
     def set_paypaltoken
-      @paypaltoken = 'A21AAGYw06WgAUlsvBS320LZty9YGX-LtBEt2nsnsWz91_SCBFU8sGB__CCw39Q1QmgsGa7xwdR-NxuIi0cOR5K7IHzao_5cA'
+      @paypaltoken = 'A21AAFHrXKHpZSipwoOZ2_HurxpMlYqiJPdJew-L1h5mZN-yBRpu4PPgFlhOVaSMeKiOImtLruUxTl5Zbxs_Vv6B-wemMlsRQ'
     end
 
     def createpayment
